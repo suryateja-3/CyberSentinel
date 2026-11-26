@@ -1,0 +1,23 @@
+# Datasets — never commit large data files
+data/raw/
+data/processed/
+
+# Trained models (large binary files)
+models/
+
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Reports (generated automatically, can be committed if desired)
+# reports/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+======================================================================
+    MODEL: url_cnn
+    Generated : 2026-10-09 21:05:41
+    Seed      : 42
+    Test size : 10,000 samples
+    ======================================================================
+
+    OVERALL ACCURACY: 0.8814 (88.14%)
+
+    CLASSIFICATION REPORT
+    ---------------------
+                  precision    recall  f1-score   support
+
+      BENIGN     0.8851    0.9419    0.9126      6574
+   MALICIOUS     0.8728    0.7653    0.8156      3426
+
+    accuracy                         0.8814     10000
+   macro avg     0.8790    0.8536    0.8641     10000
+weighted avg     0.8809    0.8814    0.8794     10000
+
+
+    CONFUSION MATRIX
+    ----------------
+                   PREDICTED
+                  BENIGN  MALICIOUS
+               --------------------
+A    BENIGN |       6192        382
+  MALICIOUS |        804       2622
+
+  Rows = Actual class | Columns = Predicted class
+  TP/TN on diagonal, FP/FN off diagonal
+
+NOTES
+-----
+Model: 1D Char CNN (PyTorch)
+
+======================================================================

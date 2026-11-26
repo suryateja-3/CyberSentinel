@@ -1,0 +1,58 @@
+======================================================================
+  INDEPENDENT FAKE NEWS EVALUATION REPORT
+  Generated   : 2026-10-12 14:35:17
+  Model       : DistilBERT (Sequence Classification)
+  Evaluation  : Independent Held-Out WELFake Subset (seed=2026, N=500)
+======================================================================
+
+OVERALL ACCURACY: 98.40%
+BRIER SCORE     : 0.0129 (lower is better, 0.0 is perfect calibration)
+EXPECTED CALIBRATION ERROR (ECE): 0.66%
+
+CONFUSION MATRIX:
+-----------------
+                  PREDICTED REAL (0)    PREDICTED FAKE (1)
+ACTUAL REAL (0) :         239 (TN)              4 (FP)
+ACTUAL FAKE (1) :           4 (FN)            253 (TP)
+
+False Positive Rate (FPR): 1.65% (Genuine articles falsely flagged as fake)
+False Negative Rate (FNR): 1.56% (Fake articles missed)
+
+CLASSIFICATION REPORT:
+----------------------
+              precision    recall  f1-score   support
+
+    REAL (0)     0.9835    0.9835    0.9835       243
+    FAKE (1)     0.9844    0.9844    0.9844       257
+
+    accuracy                         0.9840       500
+   macro avg     0.9840    0.9840    0.9840       500
+weighted avg     0.9840    0.9840    0.9840       500
+
+CALIBRATION ANALYSIS (Confidence Bins for Fake News Probability):
+-----------------------------------------------------------------
+Confidence Bin   Count    Avg Confidence   Empirical Realization    Gap       
+[0.0, 0.2]       235      0.6            % 0.9                    % 0.3      %
+[0.2, 0.4]       6        28.4           % 33.3                   % 4.9      %
+[0.4, 0.6]       4        48.5           % 25.0                   % 23.5     %
+[0.6, 0.8]       5        69.4           % 80.0                   % 10.6     %
+[0.8, 1.0]       250      99.6           % 99.2                   % 0.4      %
+
+CRITICAL ASSESSMENT & REAL-WORLD LIMITATIONS:
+----------------------------------------------
+1. Dataset Artifacts & Style Bias:
+   - The WELFake corpus comprises historical news (primarily Reuters vs clickbait blogs).
+   - DistilBERT heavily weights stylistic markers (byline patterns like 'WASHINGTON (Reuters) -',
+     editorial voice, quotation density) rather than factual veracity.
+   - Genuine articles lacking wire-service headers can be assigned lower REAL confidence.
+
+2. Generalization to Breaking News:
+   - High in-sample or within-corpus accuracy (98%+) DOES NOT guarantee high reliability on modern
+     breaking news or previously unseen disinformation narratives (e.g., AI-generated text, fresh geopolitical events).
+   - Linguistic models lack real-time world knowledge.
+
+3. Verification Necessity:
+   - Model predictions MUST be paired with independent news search and corroborating evidence
+     (e.g., via GNews or official registries) to verify current claims.
+   - Neither model confidence nor search presence constitutes definitive proof of truth.
+======================================================================

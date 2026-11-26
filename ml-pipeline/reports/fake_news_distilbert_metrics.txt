@@ -1,0 +1,37 @@
+======================================================================
+    MODEL: fake_news_distilbert
+    Generated : 2026-10-09 19:37:36
+    Seed      : 42
+    Test size : 400 samples
+    ======================================================================
+
+    OVERALL ACCURACY: 0.9825 (98.25%)
+
+    CLASSIFICATION REPORT
+    ─────────────────────
+                  precision    recall  f1-score   support
+
+        REAL     0.9746    0.9897    0.9821       194
+        FAKE     0.9901    0.9757    0.9829       206
+
+    accuracy                         0.9825       400
+   macro avg     0.9824    0.9827    0.9825       400
+weighted avg     0.9826    0.9825    0.9825       400
+
+
+    CONFUSION MATRIX
+    ────────────────
+              PREDICTED
+              REAL      FAKE
+          ------------------
+A REAL |       192         2
+  FAKE |         5       201
+
+  Rows = Actual class | Columns = Predicted class
+  TP/TN on diagonal, FP/FN off diagonal
+
+NOTES
+─────
+Model: DistilBERT (PyTorch)
+
+======================================================================
